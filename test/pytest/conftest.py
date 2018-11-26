@@ -50,7 +50,7 @@ def transactions(request):
   """
   The number of transactions a target application should create
   """
-  return request.config.option.transactions
+  return int(request.config.option.transactions)
 
 @pytest.fixture(scope='module')
 def multithreaded(request):
