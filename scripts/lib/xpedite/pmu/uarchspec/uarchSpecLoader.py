@@ -70,9 +70,8 @@ def downloadFile(url, path):
     with open(path, 'w') as fileHandle:
       fileHandle.write(six.ensure_str(data))
     return True
-  except urllib.error.HTTPError as ex:
+  except urllib.error.HTTPError:
     LOGGER.exception('failed to retrieve file "%s" from url - %s', os.path.basename(path), url)
-    raise Exception(ex)
   except IOError:
     LOGGER.exception('failed to open file - %s', path)
 
